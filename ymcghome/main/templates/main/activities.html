@@ -1,0 +1,24 @@
+{% extends 'main/master.html' %} 
+{% load static %} 
+{% load sass_tags %}
+{% load markdown_extras %}
+
+{% block title %} Activities {% endblock %} 
+
+{% block content %}
+<!-- Heading -->
+<div id="heading">
+  <h1>Activities</h1>
+</div>
+
+<!-- Main -->
+<section id="main" class="wrapper">
+  <div id="toc"></div>
+  <div class="inner">
+    <div class="content">
+      {{ content.content| markdown | safe }}
+    </div>
+  </div>
+  <div id="toc-2"></div>
+</section>
+{% endblock %}

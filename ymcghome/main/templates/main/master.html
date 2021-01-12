@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+
+{% load static %}
+{% load sass_tags %}
+
+<html>
+	<head>
+		<title>YMCG - Yonsei Management Consulting Group</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="{% sass_src 'main/main.scss' %}" rel="stylesheet" type="text/css" />
+		<script src="https://kit.fontawesome.com/3c26dff78b.js" crossorigin="anonymous"></script>
+	</head>
+
+	<body class="is-preload" onload="generateTOC(document.getElementById('toc'));">
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="{% url 'index' %}"><img src="{% static 'main/images/logo-NS-2.png' %}" alt="ymcg logo white"></a>
+				<nav>
+					<a class='menu-icon' href="#menu"><i class="fas fa-bars"></i></a>
+					<a class='menu' href="{% url 'about' %}">About</a>
+					<a class='menu' href="{% url 'activities' %}">Activities</a>
+					<a class='menu' href="{% url 'join' %}">Join</a>
+					<a class='menu' href="mailto:president.ymcg@gmail.com">Contact Us</a>
+				</nav>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<i class="fas fa-times close"></i>
+				<ul class="links">
+					<li><a class='menu' href="{% url 'about' %}">About</a></li>
+					<li><a class='menu' href="{% url 'activities' %}">Activities</a></li>
+					<li><a class='menu' href="{% url 'join' %}">Join</a></li>
+					<li><a class="menu" href="mailto:president.ymcg@gmail.com">Contact Us</a></li>
+				</ul>
+			</nav>
+
+			{% block content %}{% endblock %}
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h3>{{ footer.title }}</h3>
+							<p>{{ footer.content | linebreaks }}</p>
+						</section>
+						<section>
+							<h4>Social Media</h4>
+							<ul class="plain">
+								<li><a href="https://www.facebook.com/YMCG.Yonsei/"><i class="fab fa-facebook-f">&emsp;</i>Facebook</a></li>
+								<li><a href="https://www.instagram.com/yonsei_ymcg/?hl=en"><i class="fab fa-instagram">&emsp;</i>Instagram</a></li>
+								<li><a href="http://pf.kakao.com/_ttEBu"><i class="fas fa-comment">&emsp;</i>Kakao</a></li>
+							</ul>
+						</section>
+					</div>
+					<div class="copyright">
+						&copy; Designed by Ahn, Chan-Woo, YMCG, 2020, All rights reserved.
+					</div>
+				</div>
+			</footer>
+
+			<script src="{% static 'main/jquery.min.js' %}"></script>
+			<script src="{% static 'main/browser.min.js' %}"></script>
+			<script src="{% static 'main/breakpoints.min.js' %}"></script>
+			<script src="{% static 'main/util.js' %}"></script>
+			<script src="{% static 'main/main.js' %}"></script>
+			<script src="{% static 'main/toc.js' %}"></script>
+
+
+	</body>
+</html>

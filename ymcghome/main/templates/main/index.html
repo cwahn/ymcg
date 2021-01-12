@@ -1,0 +1,108 @@
+{% extends 'main/master.html' %} 
+{% load static %}
+{% load sass_tags %}
+{% block content %}
+<!-- Banner -->
+<section id="banner">
+  <div class="inner">
+    <h1>
+      <img
+        src="{% static 'main/images/logo-wso-w.png' %}"
+        alt="ymcg logo we stand out"
+      />
+    </h1>
+    <p>연세대학교 최초 경영전략학회 Since 1998</p>
+  </div>
+  <video
+    autoplay
+    loop
+    muted
+    playsinline
+    src="{% static 'main/images/banner-low.mp4' %}"
+  ></video>
+</section>
+
+{% if recruiting_banner.recruiting_term %}
+<!-- recruiting message -->
+<section id="cta" class="wrapper">
+  <div class="inner">
+    <h2>{{ recruiting_banner.title }}</h2>
+    <p>
+      {{ recruiting_banner.message |linebreaks}}
+    </p>
+    <div>
+      <a href="{{ recruiting_banner.brochure.url }}" class="button small">Brochure</a>
+      &emsp;
+      <a href="{{ recruiting_banner.application_form_eng.url }}" class="button small">Form_Eng</a>
+      &emsp;
+      <a href="{{ recruiting_banner.application_form_kor.url }}" class="button small">Form_Kor</a>
+    </div>
+
+    <p></p>
+
+  </div>
+</section>
+{% endif %}
+
+<!-- Introduction -->
+<section class="wrapper">
+  <div class="inner">
+    <header class="special">
+      <h2>{{ introduction.title }}</h2>
+      <p>
+        {{ introduction.message }}
+      </p>
+    </header>
+    <div class="highlights">
+      {% for key_value in key_values %}
+      <section>
+        <div class="content">
+          <header>
+            <h3>{{ key_value.value }}</h3>
+          </header>
+          <p>
+            {{ key_value.description | linebreaks }}
+          </p>
+        </div>
+      </section>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Video -->
+<section>
+  <div class="wrapper">
+    <div class="inner">
+      <div class="video-container">
+        <iframe src="{{ youtube.share_embed_url_not_normal_url }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrapper">
+    <div class="inner">
+      <header class="special">
+        <h2>Partners</h2>
+      </header>
+
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="inner">
+      <marquee class="marquee" behavior="scroll" direction="left">
+        {% for logo in logos %}
+        <img src="{{logo.logo.url}}" alt="{{logo.name}}">
+        {% endfor %}
+      </marquee>
+    </div>
+    
+  </div>
+</section>
+
+
+
+{% endblock %} 
+

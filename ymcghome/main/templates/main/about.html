@@ -1,0 +1,59 @@
+{% extends 'main/master.html' %} 
+{% load static %} 
+{% load sass_tags %}
+{% load markdown_extras %}
+
+{% block title %} About {% endblock %} 
+
+{% block content %}
+<!-- Heading -->
+<div id="heading">
+  <div class="inner">
+    <h1>About</h1>
+  </div>
+  <video
+  autoplay
+  loop
+  muted
+  playsinline
+  src="{% static 'main/images/heading-low.mp4' %}"
+></video>
+</div>
+
+<!-- Main -->
+<section id="main" class="wrapper">
+  <div id="toc"></div>
+  <div class="inner">
+    <div class="content">
+      {% for greeting in greetings %}
+      {% ifequal forloop.counter|divisibleby:"2" False %}
+      <div class="row" style="padding-bottom: 2rem;">
+        <div class="col-6 col-12-medium" style="text-align: center;">
+          <img src="{{ greeting.profile_photo.url }}" alt="name" style="height: 18rem;"><br><br><br>
+          <h3>{{ greeting.name }}</h3>
+          <p>{{ greeting.description_1 }}<br>{{ greeting.description_2 }}</p>
+        </div>
+        <div class="col-6 col-12-medium">
+          {{ greeting.greeting | markdown| safe }}
+        </div>
+      </div>
+      {% else %}
+      <div class="row" style="padding-bottom: 2rem;">
+        <div class="col-6 col-12-medium">
+          {{ greeting.greeting | markdown | safe }}
+        </div>
+        <div class="col-6 col-12-medium"  style="text-align: center;">
+          <img src="{{ greeting.profile_photo.url }}" alt="name" style="height: 18rem;" ><br><br><br>
+          <h3>{{ greeting.name }}</h3>
+          <p>{{ greeting.description_1 }}<br>{{ greeting.description_2 }}</p>
+        </div>
+      </div>
+      {% endifequal %}
+      {% endfor %}
+
+        {{ content.content| markdown | safe }}
+    </div>
+  </div>
+  <div id="toc-2"></div>
+</section>
+{% endblock %}

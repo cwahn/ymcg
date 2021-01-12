@@ -1,0 +1,60 @@
+    #toc {
+        position: sticky;
+        display: inline-block;
+        left: 1.5rem;
+        top: 4rem;
+        z-index: 3;
+        width: calc((100vw - 75rem - 6rem)/2 );
+        overflow-wrap: break-word;
+        padding-top: 1rem;
+        height: 15rem;
+
+        font-family: "NSB";
+
+
+        ul {
+            list-style-type: none;
+            margin-left: 0.5rem;
+            z-index: 3;
+        }
+
+        a {
+            text-decoration: none;
+            z-index: 3;
+
+            color: _palette(accent2, bg);
+			text-decoration: none;
+
+			&:hover {
+				color: _palette(accent1, bg);
+			}
+        }
+
+        @include breakpoint('<=large') {
+            display: none !important; 
+        }
+    }
+
+    #toc-2 {
+
+        z-index: 3;
+        width: calc((100vw - 75rem - 6rem)/2 );
+        overflow-wrap: break-word;
+        padding-top: 2rem;
+
+
+        ul {
+            list-style-type: none;
+            margin-left: 0.5rem;
+            z-index: 3;
+        }
+        
+        a {
+            text-decoration: none;
+            z-index: 3;
+        }
+
+        @include breakpoint('<=large') {
+            display: none !important; 
+        }
+    }

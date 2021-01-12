@@ -1,0 +1,40 @@
+{% extends 'main/master.html' %} 
+{% load static %} 
+{% load sass_tags %}
+{% load markdown_extras %}
+
+{% block title %} Join {% endblock %} 
+
+{% block content %}
+<!-- Heading -->
+<div id="heading">
+  <h1>Join</h1>
+</div>
+
+<!-- Main -->
+<section id="main" class="wrapper">
+  <div id="toc"></div>
+  <div class="inner">
+    <div class="content">
+      {{ content.content| markdown | safe }}
+
+        <section id="cta-2" class="wrapper">
+          <div class="inner">
+            <h2>Downloads</h2>
+            <div>
+              <a href="{{ recruiting_banner.brochure.url }}" class="button small primary">Brochure</a>
+              &emsp;
+              <a href="{{ recruiting_banner.application_form_eng.url }}" class="button small primary">Form_Eng</a>
+              &emsp;
+              <a href="{{ recruiting_banner.application_form_kor.url }}" class="button small primary">Form_Kor</a>
+            </div>
+        
+            <p></p>
+        
+          </div>
+        </section>
+    </div>
+  </div>
+  <div id="toc-2"></div>
+</section>
+{% endblock %}

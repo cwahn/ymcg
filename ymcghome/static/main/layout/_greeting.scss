@@ -1,0 +1,17 @@
+.large-medium {
+
+    display: block;
+
+    @include breakpoint('<=small'){
+        display: none;
+    }
+}
+
+.small {
+
+    display: none;
+
+    @include breakpoint('<=small'){
+        display: block;
+    }
+}
